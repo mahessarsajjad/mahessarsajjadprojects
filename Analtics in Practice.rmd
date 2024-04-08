@@ -1,6 +1,6 @@
 ---
 title: "Email Marketing Group Project"
-author: "Group 40"
+author: "sajjad"
 date: "2022-11-26"
 output: html_document
 ---
