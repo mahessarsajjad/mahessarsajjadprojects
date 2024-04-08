@@ -1,0 +1,88 @@
+"""
+Asset Management Problem
+"""
+
+import pulp
+import pandas as pd
+import numpy as np
+
+file_name='AssetData.xlsx'
+df = pd.read_excel(file_name,index_col=0)  # by default header=0, i.e. no need to create
+company = df.index
+av = df['EARN']/df['MCAP']
+rv = av.rank()
+am = df['RET (%)']
+rm = am.rank()
+aa = (av + am)/2
+ar = (rv + rm)/2
+wt = df['MCAP']*ar
+wt = wt/wt.sum()
+w0 = pd.Series(0.1*np.ones(len(wt)),index=wt.index)
+cc = 0.1*w0
+sector = df.columns[-3:]
+
+model = pulp.LpProblem("Asset_Management", pulp.LpMinimize)
+
+w = pulp.LpVariable.dicts("w",company, lowBound = 0, upBound = None, cat ="Continuous")
+yt = pulp.LpVariable.dicts("yt",company, lowBound = None, upBound = None, cat ="Continuous")
+y0 = pulp.LpVariable.dicts("y0",company, lowBound = None, upBound = None, cat ="Continuous")
+x = pulp.LpVariable.dicts("x",sector, lowBound = None, upBound = None, cat ="Continuous")
+zs = pulp.LpVariable.dicts("zs",company, lowBound = 0, upBound = 1, cat ="Integer")
+zt = pulp.LpVariable.dicts("zt",company, lowBound = 0, upBound = 1, cat ="Integer")
+
+model += pulp.lpSum(yt[i] for i in company), "Distance"
+
+model += pulp.lpSum(w[i] for i in company) == 1, "Weight"
+
+for i in company:
+    model += w[i] - wt[i] <= yt[i], f"tAbsolutel_{i}"
+    model += -w[i] + wt[i] <= yt[i], f"tAbsoluter_{i}"
+
+model+= pulp.lpSum(x[k] for k in sector) <= 0.05, "Sector"     
+
+for k in sector:
+    model += pulp.lpSum(df.loc[i,k]*(w[i]-wt[i]) for i in company) <= x[k], f"sAbsolutel_{k}" 
+    model += pulp.lpSum(df.loc[i,k]*(-w[i]+wt[i]) for i in company) <= x[k], f"sAbsoluter_{k}" 
+
+model+= pulp.lpSum(zs[i] for i in company) <= 6, "Stock" 
+
+for i in company:
+    model += w[i] <= zs[i], f"Stock_{i}"
+
+model += pulp.lpSum(aa[i]*w[i] for i in company) >= 0.05, "Alpha"
+
+model += pulp.lpSum(zt[i] for i in company) <= 6, "Transaction"
+
+for i in company:
+    model += w[i] - w0[i] <= zt[i], f"Transactionl_{i}"
+    model += -w[i] + w0[i] <= zt[i], f"Transactionr_{i}"
+    
+model += pulp.lpSum(cc[i]*y0[i] for i in company) <= 0.02, "Cost"
+
+for i in company:
+    model += w[i] - w0[i] <= y0[i], f"Costl_{i}"
+    model += -w[i] + w0[i] <= y0[i], f"Costr_{i}"
+
+print(model)
+print()
+
+#model.solve()
+#model.solve(pulp.CPLEX_CMD())
+#model.solve(pulp.GUROBI_CMD())
+model.solve(pulp.PULP_CBC_CMD())
+
+status = pulp.LpStatus[model.status]
+print("Solution status: ", status)
+print()
+
+#for var in model.variables():
+#    if var.varValue > 0.0:
+#        print(var.name, "=", var.varValue)
+for i in company:
+    if w[i].varValue > 0.0:
+        print(w[i].name, "=", w[i].varValue)
+print()
+
+pr = pulp.value(model.objective)
+print("Distance =", pr)
+

@@ -1,0 +1,68 @@
+"""
+Incentive Influence Problem
+"""
+
+import pandas as pd
+import numpy as np
+import math
+
+file_name='NetworkData.xlsx'
+data = pd.read_excel(file_name,sheet_name='Data',index_col=0)  # by default header=0, i.e. no need to create
+coordinate = data.columns
+record = data.index
+
+def dist(i,j):
+    ttemp = 0.0
+    for ind in coordinate:
+        ttemp = ttemp + (data.loc[i,ind]-data.loc[j,ind])**2
+    ttemp = math.sqrt(ttemp)
+    return ttemp
+
+distance = pd.DataFrame(columns=record,index=record)
+for i in record:
+    for j in record:
+        distance.loc[i,j] = dist(i,j)
+    
+gamma = distance.sum().sum()/(len(record)*(len(record)-1))
+
+r = 2
+
+decay = pd.DataFrame(columns=record,index=record)
+for i in record:
+    for j in record:
+        decay.loc[i,j] = math.exp(-(dist(i,j)/gamma)**r)
+        
+print(decay)
+
+solution = pd.Series(np.zeros(len(record)),index=record)
+solutionb = pd.Series(np.ones(len(record)),index=record)
+
+def profit(solution):
+    ptemp = len(solution) - sum(solution)
+    
+    for i in record:
+        if (solution.loc[i] == 0):
+            qtemp = 1.0
+            for j in record:
+                if (solution.loc[j] == 1):
+                    qtemp = qtemp*(1.0-decay.loc[i,j])
+            ptemp = ptemp - qtemp
+    return ptemp
+
+for i in record:
+    tsol = solution.copy()
+    tsol.loc[i] = 1
+    deltap = profit(tsol) - profit(solution)
+    tsolb = solutionb.copy()
+    tsolb.loc[i] = 0
+    deltam = -profit(solutionb) + profit(tsolb)
+    if deltap >= deltam:
+        solution = tsol.copy()
+    else:
+        solutionb = tsolb.copy()
+            
+print(solution)
+
+print('The total profit is ', profit(solution))
+
+
