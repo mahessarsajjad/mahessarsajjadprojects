@@ -1,0 +1,373 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q34,Q35,Q37,Q38,Q39,Q40,Q33,Q43,Q1,Q33_1,Q2,Q60_1,Q3,Q61_1,Q4,Q59_1,Q5,Q79_1,Q74,Q80_1,Q75,Q81_1,Q76,Q82_1,Q77,Q83_1,Q78,Q35_1,Q44,Q6,Q62_1,Q7,Q68_1,Q8,Q69_1,Q9,Q71_1,Q10,Q92_1,Q87,Q72_1,Q88,Q98_1,Q89,Q97_1,Q90,Q96_1,Q91,Q93_1,Q45,Q11,Q106_1,Q105,Q107_1,Q56,Q126_1,Q114,Q127_1,Q57,Q130_1,Q118,Q131_1,Q101,Q132_1,Q125,Q133_1,Q100,Q134_1,Q116,Q135_1,Q119,Q136_1,Q122,Q137_1,Q121,Q138_1,Q123,Q139_1,Q102,Q140_1,Q109,Q141_1,Q103,Q142_1,Q113,Q143_1,Q104,Q54_1,Q112,Q55_1,Q46,Q21,Q54_1,Q28,Q23,Q55_1,Q29,Q24,Q56_1,Q30,Q25,Q57_1,Q31,Q26,Q58_1,Q32,Q60,Q65_1,Q66,Q64,Q67_1,Q68,Q63,Q69_1,Q70,Q62,Q71_1,Q72,Q61,Q59_1,Q73,Q48_1,Q49,Q50,Q51
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,"The purpose of this research study is to understand decision-making behaviors in a strategic setting.
+The study consists of 3 parts, in the following order:
+ 1. a short survey
+ 2. a decision-making task (with performance-based monetary reward)
+ 3. a second short survey.
+
+The two surveys include questions about your demographic information, traits and your opinions about the decision-making task.
+Completing the entire study will take about 20-30 minutes.","1.	What is your age?","2.	What is your education background?","3.	What is your employment status?","4.	What is your work industry?","5.	If you unexpectedly received a lot of money, what would you do?",Section 1: Experiment InstructionYou are now taking part in an experiment. Your task is to review lo,"THE RULES:
+
+You will receive the information about 10 loan applications. For each applicants, you need to decide whether you approve or reject the loan, based on the given information. Additionally, you need to rate how confident are you with each of your decisions.","Applicant profile
+
+Loan applicant #3157804 has applied a loan amount of $25000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $82000 and a A5 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile 
+Loan applicant #1543465 has applied a loan amount of $20000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $56000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1915074 has applied a loan amount of $27000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $72000 and a A4 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1865377 has applied a loan amount of $24000. The applicant has inquired 3 other credit inquiries in the last 6 months. The applicant has an annual income of $90000 and a E2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1603333 has applied a loan amount of $28000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $77200 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1684062 has applied a loan amount of $35000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $92000 and a B3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #3056032 has applied a loan amount of $35000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $120000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #2377392 has applied a loan amount of $24000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $80000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1678250 has applied a loan amount of $32000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $87000 and a E3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #3164511 has applied a loan amount of $25000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $74000 and a B2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"THE RULES:
+
+You will receive the information about 10 loan applications and the predictions made by a computer. The computer predictions are correct in 80% of all cases. For each applicants, you need to decide whether you approve or reject the loan, based on the given information and the predictions made by a computer. Additionally, you need to rate how confident are you with each of your decisions.","Applicant profile
+
+Loan applicant #3157804 has applied a loan amount of $25000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $82000 and a A5 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved. 
+
+Make a prediction: 
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1543465 has applied a loan amount of $20000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $56000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1915074 has applied a loan amount of $27000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $72000 and a A4 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1865377 has applied a loan amount of $24000. The applicant has inquired 3 other credit inquiries in the last 6 months. The applicant has an annual income of $90000 and a E2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+ 
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1603333 has applied a loan amount of $28000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $77200 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1684062 has applied a loan amount of $35000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $92000 and a B3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).    
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #3056032 has applied a loan amount of $35000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $120000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+Loan applicant #2377392 has applied a loan amount of $24000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $80000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1678250 has applied a loan amount of $32000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $87000 and a E3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #3164511 has applied a loan amount of $25000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $74000 and a B2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"THE RULES:
+
+You will receive the information about 10 loan applications. For each applicants, you need to decide whether you approve or reject the loan, based on the given information. Additionally, you need to rate how confident are you with each of your decisions.
+
+After you make your initial decisions, you will be shown the predictions made by a computer. The computer predictions are correct in 80% of all cases. You will then make your final decisions - you can either change your initial decisions or keep them as are. You will also be able to update your confidence levels for your final decisions if you wish.","Applicant profile
+
+Loan applicant #3157804 has applied a loan amount of $25000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $82000 and a A5 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1543465 has applied a loan amount of $20000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $56000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1915074 has applied a loan amount of $27000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $72000 and a A4 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1865377 has applied a loan amount of $24000. The applicant has inquired 3 other credit inquiries in the last 6 months. The applicant has an annual income of $90000 and a E2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).    
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1603333 has applied a loan amount of $28000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $77200 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).     
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1684062 has applied a loan amount of $35000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $92000 and a B3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).    
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Applicant profile
+Loan applicant #3056032 has applied a loan amount of $35000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $120000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).     
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #2377392 has applied a loan amount of $24000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $80000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #1678250 has applied a loan amount of $32000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $87000 and a E3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Applicant profile
+
+Loan applicant #3164511 has applied a loan amount of $25000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $74000 and a B2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Make a prediction:
+Please make your decision for the loan.",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+ 
+Make a prediction again:",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,"THE RULES:
+
+You will receive the information about 10 loan applications and the predictions made by a computer. The computer predictions are correct in 80% of all cases. For each applicants, you need to decide whether you approve or reject the loan, based on the given information and the predictions made by a computer. Additionally, you need to rate how confident are you with each of your decisions.
+After you make your initial decisions, you will be shown whether the loan is good or not actually.","Applicant profile
+Loan applicant #3157804 has applied a loan amount of $25000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $82000 and a A5 loan grade (A is the best loan grade (least risky), 1 is the best subgrade). 
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+Make a prediction:
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #1543465 has applied a loan amount of $20000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $56000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+
+According to the risk score algorithm, the applicant should be approved.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is bad.,"Applicant profile
+Loan applicant #1915074 has applied a loan amount of $27000. The applicant has inquired 2 other credit inquiries in the last 6 months. The applicant has an annual income of $72000 and a A4 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+
+According to the risk score algorithm, the applicant should be approved.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #1865377 has applied a loan amount of $24000. The applicant has inquired 3 other credit inquiries in the last 6 months. The applicant has an annual income of $90000 and a E2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is bad.,"Applicant profile
+Loan applicant #1603333 has applied a loan amount of $28000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $77200 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #1684062 has applied a loan amount of $35000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $92000 and a B3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #3056032 has applied a loan amount of $35000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $120000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #2377392 has applied a loan amount of $24000. The applicant has inquired 1 other credit inquiries in the last 6 months. The applicant has an annual income of $80000 and a C2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).  
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"Applicant profile
+Loan applicant #1678250 has applied a loan amount of $32000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $87000 and a E3 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be rejected.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is bad.,"Applicant profile
+Loan applicant #3164511 has applied a loan amount of $25000. The applicant has not inquired other credit inquiries in the last 6 months. The applicant has an annual income of $74000 and a B2 loan grade (A is the best loan grade (least risky), 1 is the best subgrade).   
+
+Risk assessment:
+According to the risk score algorithm, the applicant should be approved.
+
+
+Make a prediction:
+
+Please make your decision for the loan",How confident are you in your decision? (0: very unconfident; 100: very confident) - Confidence,The actual outcome of the loan is good.,"1. How satisfied are you with the results of the computer predictions? £¨0: Lowest level, 100: Highest level£© - level","2.	Which information about the loan applications were the most important to you when you reviewing them?","3.	Is there any other information you think that might have helped you make better decisions?","4.	How do you fell about the outcome of your participation in the experiment?"
+"{""ImportId"":""startDate"",""timeZone"":""Europe/London""}","{""ImportId"":""endDate"",""timeZone"":""Europe/London""}",{"ImportId":"status"},{"ImportId":"ipAddress"},{"ImportId":"progress"},{"ImportId":"duration"},{"ImportId":"finished"},"{""ImportId"":""recordedDate"",""timeZone"":""Europe/London""}",{"ImportId":"_recordId"},{"ImportId":"recipientLastName"},{"ImportId":"recipientFirstName"},{"ImportId":"recipientEmail"},{"ImportId":"externalDataReference"},{"ImportId":"locationLatitude"},{"ImportId":"locationLongitude"},{"ImportId":"distributionChannel"},{"ImportId":"userLanguage"},{"ImportId":"QID34"},{"ImportId":"QID36"},{"ImportId":"QID37"},{"ImportId":"QID38"},{"ImportId":"QID39"},{"ImportId":"QID40"},{"ImportId":"QID33"},{"ImportId":"QID43"},{"ImportId":"QID1"},{"ImportId":"QID35_1"},{"ImportId":"QID2"},{"ImportId":"QID60_1"},{"ImportId":"QID3"},{"ImportId":"QID61_1"},{"ImportId":"QID4"},{"ImportId":"QID59_1"},{"ImportId":"QID5"},{"ImportId":"QID80_1"},{"ImportId":"QID75"},{"ImportId":"QID81_1"},{"ImportId":"QID76"},{"ImportId":"QID82_1"},{"ImportId":"QID77"},{"ImportId":"QID83_1"},{"ImportId":"QID78"},{"ImportId":"QID84_1"},{"ImportId":"QID79"},{"ImportId":"QID50_1"},{"ImportId":"QID44"},{"ImportId":"QID6"},{"ImportId":"QID62_1"},{"ImportId":"QID7"},{"ImportId":"QID68_1"},{"ImportId":"QID8"},{"ImportId":"QID69_1"},{"ImportId":"QID9"},{"ImportId":"QID71_1"},{"ImportId":"QID10"},{"ImportId":"QID92_1"},{"ImportId":"QID87"},{"ImportId":"QID72_1"},{"ImportId":"QID88"},{"ImportId":"QID102_1"},{"ImportId":"QID89"},{"ImportId":"QID101_1"},{"ImportId":"QID90"},{"ImportId":"QID100_1"},{"ImportId":"QID91"},{"ImportId":"QID94_1"},{"ImportId":"QID45"},{"ImportId":"QID11"},{"ImportId":"QID124_1"},{"ImportId":"QID120"},{"ImportId":"QID125_1"},{"ImportId":"QID56"},{"ImportId":"QID144_1"},{"ImportId":"QID132"},{"ImportId":"QID145_1"},{"ImportId":"QID57"},{"ImportId":"QID148_1"},{"ImportId":"QID136"},{"ImportId":"QID149_1"},{"ImportId":"QID110"},{"ImportId":"QID150_1"},{"ImportId":"QID143"},{"ImportId":"QID151_1"},{"ImportId":"QID109"},{"ImportId":"QID152_1"},{"ImportId":"QID134"},{"ImportId":"QID153_1"},{"ImportId":"QID137"},{"ImportId":"QID154_1"},{"ImportId":"QID140"},{"ImportId":"QID155_1"},{"ImportId":"QID139"},{"ImportId":"QID156_1"},{"ImportId":"QID141"},{"ImportId":"QID157_1"},{"ImportId":"QID111"},{"ImportId":"QID158_1"},{"ImportId":"QID127"},{"ImportId":"QID159_1"},{"ImportId":"QID112"},{"ImportId":"QID160_1"},{"ImportId":"QID131"},{"ImportId":"QID161_1"},{"ImportId":"QID113"},{"ImportId":"QID54_1"},{"ImportId":"QID130"},{"ImportId":"QID55_1"},{"ImportId":"QID46"},{"ImportId":"QID21"},{"ImportId":"QID73_1"},{"ImportId":"QID28"},{"ImportId":"QID23"},{"ImportId":"QID86_1"},{"ImportId":"QID29"},{"ImportId":"QID24"},{"ImportId":"QID93_1"},{"ImportId":"QID30"},{"ImportId":"QID25"},{"ImportId":"QID97_1"},{"ImportId":"QID31"},{"ImportId":"QID26"},{"ImportId":"QID98_1"},{"ImportId":"QID32"},{"ImportId":"QID104"},{"ImportId":"QID114_1"},{"ImportId":"QID115"},{"ImportId":"QID108"},{"ImportId":"QID116_1"},{"ImportId":"QID117"},{"ImportId":"QID107"},{"ImportId":"QID118_1"},{"ImportId":"QID119"},{"ImportId":"QID106"},{"ImportId":"QID121_1"},{"ImportId":"QID122"},{"ImportId":"QID105"},{"ImportId":"QID99_1"},{"ImportId":"QID123"},{"ImportId":"QID48_1"},{"ImportId":"QID51"},{"ImportId":"QID52_TEXT"},{"ImportId":"QID53_TEXT"}
+02/03/2023 22:20,02/03/2023 22:32,IP Address,31.205.0.52,100,750,TRUE,02/03/2023 22:32,R_2xztw4Wv8qFmr6X,,,,,52.4064,-1.5082,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,Approve,91,Reject,100,Approve,72,Reject,70,Approve,87,Reject,82,Approve,79,Approve,76,Approve,70,Approve,93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60,Loan grade,,
+03/03/2023 18:01,03/03/2023 18:08,IP Address,24.43.123.82,100,430,TRUE,03/03/2023 18:08,R_3pth2UfVYqF31lU,,,,,32.8509,-117.2722,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Others,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,75,,Reject,81,,Approve,80,,Reject,80,,Approve,70,,Approve,70,,Approve,80,,Reject,70,,Approve,81,,Approve,80,,71,Loan grade,purpose of the loan,good
+03/03/2023 18:09,03/03/2023 18:14,IP Address,129.2.192.200,100,285,TRUE,03/03/2023 18:14,R_3L74dceiJbon56R,,,,,39.37,-76.6745,anonymous,EN,,18-25 years old,High school diploma/GED,Seeking opportunities currently,Others,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,Approve,83,Approve,60,Approve,90,Approve,53,Reject,86,Reject,62,Approve,80,Reject,61,Reject,76,Reject,72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67,Annual income,No,Good
+03/03/2023 18:33,03/03/2023 18:38,IP Address,115.96.219.113,100,324,TRUE,03/03/2023 18:38,R_zZ0oDJ0zqqajYQN,,,,,19.0748,72.8856,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Legal services,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Approve,54,Reject,73,Approve,65,Reject,69,Reject,77,Approve,86,Approve,58,Approve,70,Reject,93,Approve,84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61,Loan grade,,
+03/03/2023 19:37,03/03/2023 20:18,IP Address,27.57.184.210,100,2463,TRUE,03/03/2023 20:18,R_DjDfz9uqx69UOqt,,,,,21.1888,72.8293,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Others,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,95,Approve,95,Approve,70,Approve,80,Approve,97,Approve,100,Reject,60,Reject,80,Approve,75,Approve,60,Approve,80,Approve,87,Approve,85,Approve,90,Reject,75,Reject,90,Reject,90,Reject,95,Approve,75,Approve,85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,77,Annual income,"existing assets and debts, loans rate of interest and tenure",
+04/03/2023 05:19,04/03/2023 05:29,IP Address,49.36.237.131,100,615,TRUE,04/03/2023 05:29,R_31jfcPbWGWcDQkT,,,,,26.9525,75.7105,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Others,Invest it in stocks (High risks but possibly high return),,,Approve,81,Approve,42,Approve,88,Reject,8,Approve,57,Approve,74,Approve,46,Approve,41,Reject,69,Approve,70,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,81,Loan grade,,
+04/03/2023 14:36,04/03/2023 14:41,IP Address,112.97.82.10,100,265,TRUE,04/03/2023 14:41,R_pLw3AICCzM2mUqB,,,,,22.5559,114.0577,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Finance,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Approve,83,Reject,69,Approve,83,Reject,68,Approve,73,Approve,91,Approve,82,Approve,79,Reject,54,Approve,73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,77,Loan grade,,
+04/03/2023 14:17,04/03/2023 14:43,IP Address,137.205.1.120,100,1576,TRUE,04/03/2023 14:43,R_envG25qWU4WLLS9,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Prefer not to say,Data processing,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,50,,Reject,50,,Approve,50,,Reject,51,,Approve,50,,Approve,51,,Approve,50,,Approve,51,,Reject,50,,Approve,51,,60,Loan grade,,
+04/03/2023 14:40,04/03/2023 14:45,IP Address,39.144.153.172,100,333,TRUE,04/03/2023 14:45,R_2TXgyckiud6K4hc,,,,,31.3093,120.602,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Full-time,Finance,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,20,,Reject,9,,Approve,24,,Reject,52,,Approve,29,,Approve,47,,Approve,59,,Approve,50,,Reject,72,,Approve,72,,61,Loan grade,,
+04/03/2023 14:37,04/03/2023 14:51,IP Address,1.192.215.133,100,811,TRUE,04/03/2023 14:51,R_3IX2zhx2lVfvSaO,,,,,34.7599,113.6459,anonymous,EN,,26-40 years old,Bachelor¡¯s degree,Full-time,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,Approve,95,Approve,60,Approve,81,Reject,80,Approve,81,Approve,81,Approve,70,Approve,72,Reject,100,Approve,74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60,Loan grade,,
+04/03/2023 14:38,04/03/2023 15:07,IP Address,112.2.225.64,100,1774,TRUE,04/03/2023 15:07,R_21ul0F8sDFRqxXA,,,,,32.0589,118.7738,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Others,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,70,Approve,90,Approve,64,Approve,80,Approve,75,Approve,81,Approve,72,Reject,52,Approve,80,Approve,69,Approve,70,Approve,80,Approve,71,Approve,87,Approve,76,Approve,67,Reject,64,Reject,69,Approve,64,Approve,74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,20,Loan grade,Family situation£¬job£¬,nothing
+04/03/2023 16:45,04/03/2023 16:53,IP Address,137.205.1.158,100,495,TRUE,04/03/2023 16:53,R_SYTPZAm1RHSDhbb,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Currently not working,Deposit it into a saving account (safe but low reward),,,Approve,80,Reject,81,Approve,80,Reject,80,Reject,80,Reject,69,Reject,81,Reject,72,Reject,82,Approve,70,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,61,Loan grade,Use of debt,Great!
+05/03/2023 12:43,05/03/2023 12:47,IP Address,5.151.186.165,100,228,TRUE,05/03/2023 12:47,R_qOTpli4Q6Un2RZ7,,,,,51.7657,-1.2797,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,85,,Reject,40,,Approve,50,,Reject,40,,Reject,40,,Reject,44,,Approve,53,,Reject,53,,Reject,52,,Approve,53,,40,Other credit inquiries,spending history ,"under limited information, it¡¯s alright "
+05/03/2023 13:19,05/03/2023 13:22,IP Address,106.193.183.197,100,180,TRUE,05/03/2023 13:22,R_1rNF0FTT6MzWELQ,,,,,19.0748,72.8856,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Others,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,Approve,80,Approve,75,Approve,81,Approve,89,Approve,87,Approve,86,Approve,84,Approve,83,Approve,83,Approve,92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,78,Loan amount,No,No
+05/03/2023 13:57,05/03/2023 14:01,IP Address,5.151.186.163,100,250,TRUE,05/03/2023 14:01,R_2q1tEvX2p8Nm2SB,,,,,51.7657,-1.2797,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Others,Do nothing with it,,,Approve,78,Approve,62,Approve,87,Reject,39,Approve,57,Approve,74,Approve,75,Approve,70,Reject,43,Approve,78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,62,Other credit inquiries,I¡¯m not sure,Positive
+05/03/2023 13:23,05/03/2023 14:15,IP Address,31.205.126.173,100,3076,TRUE,05/03/2023 14:15,R_1mUTUBmLxib0hlc,,,,,52.4214,-1.5674,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,84,Approve,100,Approve,71,Approve,80,Approve,87,Approve,91,Reject,97,Reject,100,Approve,85,Approve,98,Approve,91,Approve,100,Approve,74,Approve,91,Approve,70,Approve,92,Reject,100,Reject,100,Approve,100,Approve,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Loan grade,"What type of inquiries are they? Soft or hard? If hard, I would like to know the total amount of other loans that they have borrowed.",It's confused for me that there are similar questions but different computer evaluations.
+05/03/2023 14:04,05/03/2023 14:15,IP Address,5.151.186.161,100,663,TRUE,05/03/2023 14:15,R_2QX3mA1wFSsZVLO,,,,,51.7657,-1.2797,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Approve,75,Reject,80,Approve,71,Reject,100,Reject,61,Approve,70,Approve,92,Reject,61,Reject,100,Approve,80,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Loan grade,their bank balance ,
+05/03/2023 14:14,05/03/2023 14:17,IP Address,193.115.217.24,100,147,TRUE,05/03/2023 14:17,R_3MuRc4Z1pfueDVu,,,,,51.4863,-0.101,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Finance,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,Approve,100,Approve,80,Approve,60,Approve,65,Approve,75,Approve,75,Reject,62,Reject,61,Reject,71,Approve,77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,75,Loan amount,no,no
+05/03/2023 14:04,05/03/2023 14:24,IP Address,115.227.86.121,100,1238,TRUE,05/03/2023 14:25,R_3hubah0hcfwnCj0,,,,,30.2994,120.1612,anonymous,EN,,41-60 years old,Master¡¯s degree or higher education,Full-time,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,90,,Approve,81,,Approve,91,,Reject,92,,Reject,92,,Approve,91,,Approve,71,,Reject,82,,Reject,91,,Approve,86,,81,Other credit inquiries,the ratio between load amount and annual income,The decision to pass or reject requires comprehensive consideration of various factors
+05/03/2023 14:18,05/03/2023 14:27,IP Address,5.151.26.59,100,569,TRUE,05/03/2023 14:27,R_3m9ypxeVSqsUm4j,,,,,53.4809,-2.2374,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Seeking opportunities currently,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,50,Approve,70,Reject,50,Approve,60,Approve,50,Approve,70,Reject,50,Reject,80,Reject,50,Reject,80,Approve,50,Approve,70,Approve,50,Approve,70,Reject,50,Reject,70,Reject,50,Reject,80,Approve,50,Approve,70,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Loan grade,annual income,have miscellaneous function
+05/03/2023 16:33,05/03/2023 16:44,IP Address,106.223.178.60,100,664,TRUE,05/03/2023 16:44,R_1CfOmHzFNTzc7Oq,,,,,28.6542,77.2373,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Finance,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,Approve,100,Approve,90,Approve,90,Reject,70,Approve,84,Approve,94,Approve,100,Approve,88,Reject,84,Approve,88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Annual income,Credit score or past credit worthiness,
+05/03/2023 18:23,05/03/2023 18:30,IP Address,117.99.222.44,100,454,TRUE,05/03/2023 18:30,R_2fjt3aPuXno3Yj6,,,,,26.1206,91.6523,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Others,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,60,Approve,51,Approve,18,Approve,63,Approve,80,Approve,100,Reject,87,Reject,35,Approve,19,Reject,32,Approve,31,Approve,64,Approve,31,Approve,61,Approve,44,Approve,60,Reject,90,Reject,47,Approve,40,Approve,41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,83,Annual income,The previous amount of loan taken and repayment conditions,Quite reasonable 
+05/03/2023 18:41,05/03/2023 18:49,IP Address,137.205.1.79,100,481,TRUE,05/03/2023 18:49,R_3eyQMPCvAP7NW89,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Deposit it into a saving account (safe but low reward),,,Approve,66,Reject,51,Approve,62,Reject,68,Approve,38,Approve,51,Approve,51,Reject,30,Reject,44,Approve,52,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,78,Annual income,"Credit score, historical data of loan and stability of job",Fits my expectation 
+05/03/2023 18:53,05/03/2023 18:58,IP Address,5.151.186.165,100,302,TRUE,05/03/2023 18:58,R_qQoSMtVMy0oouMF,,,,,51.7657,-1.2797,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Finance,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Reject,69,Reject,77,Reject,46,Reject,100,Approve,61,Approve,52,Approve,51,Reject,70,Reject,100,Approve,69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,64,Other credit inquiries,The interest I will receive,Na
+05/03/2023 19:14,05/03/2023 19:18,IP Address,58.153.228.128,100,231,TRUE,05/03/2023 19:18,R_3KJWpEnrNj53RML,,,,,22.2908,114.1501,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Seeking opportunities currently,Education,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,Approve,68,Approve,66,Reject,53,Reject,55,Approve,52,Approve,53,Approve,60,Approve,52,Reject,90,Approve,80,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,45,Annual income,,-
+05/03/2023 19:49,05/03/2023 19:59,IP Address,82.132.186.21,100,615,TRUE,05/03/2023 19:59,R_21FHnCoPWAPlg83,,,,,53.7881,-1.6008,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,98,,Approve,95,,Approve,95,,Reject,95,,Approve,67,,Approve,69,,Approve,95,,Approve,96,,Reject,95,,Approve,95,,90,Loan grade,no,good
+05/03/2023 19:56,05/03/2023 20:09,IP Address,31.205.0.9,100,805,TRUE,05/03/2023 20:09,R_vwsp3aoRtvYg0ql,,,,,52.4064,-1.5082,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Part-time,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,80,Approve,80,Approve,65,Approve,70,Approve,80,Approve,70,Reject,65,Approve,81,Approve,85,Reject,71,Approve,91,Approve,85,Approve,70,Approve,75,Approve,68,Approve,65,Reject,71,Reject,81,Approve,70,Approve,74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,67,Loan grade,,Good
+05/03/2023 20:06,05/03/2023 20:10,IP Address,137.205.1.111,100,238,TRUE,05/03/2023 20:10,R_3j6FUagRuevtTbH,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,Approve,92,Reject,40,Approve,64,Reject,92,Reject,62,Approve,73,Approve,72,Reject,82,Reject,81,Approve,71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,81,Loan grade,,The AI helped me in making the decision
+05/03/2023 21:47,05/03/2023 21:56,IP Address,137.205.1.90,100,514,TRUE,05/03/2023 21:56,R_2tnbASDlBli2U3L,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Invest it in stocks (High risks but possibly high return),,,Approve,50,Approve,43,Approve,42,Reject,24,Approve,45,Approve,56,Approve,45,Reject,53,Approve,56,Reject,43,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,51,Annual income,,
+05/03/2023 22:16,05/03/2023 22:20,IP Address,137.205.1.168,100,270,TRUE,05/03/2023 22:20,R_O9DTu2DNp2CYbhT,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Finance,Deposit it into a saving account (safe but low reward),,,Approve,79,Reject,72,Approve,100,Approve,60,Reject,66,Approve,83,Approve,89,Approve,61,Reject,74,Approve,59,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,91,Loan grade,Annual income,Engaging 
+05/03/2023 23:15,05/03/2023 23:22,IP Address,85.255.233.194,100,398,TRUE,05/03/2023 23:22,R_1rHaxJItnct47o0,,,,,51.4964,-0.1224,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Deposit it into a saving account (safe but low reward),,,Approve,76,Approve,80,Approve,100,Reject,81,Approve,65,Approve,67,Approve,95,Approve,84,Reject,92,Approve,86,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,72,Loan grade,Non,Good enough 
+05/03/2023 23:48,05/03/2023 23:51,IP Address,137.205.1.12,100,208,TRUE,05/03/2023 23:51,R_3e1XD84XrDC2XR3,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Part-time,Education,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,36,Approve,65,Approve,25,Approve,72,Reject,79,Reject,23,Approve,32,Approve,99,Approve,68,Reject,83,Approve,75,Reject,74,Approve,54,Approve,14,Approve,100,Reject,71,Approve,78,Approve,74,Approve,38,Approve,46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,50,Loan grade,More information ,I fell for it 
+06/03/2023 00:33,06/03/2023 00:39,IP Address,14.0.226.164,100,339,TRUE,06/03/2023 00:39,R_1Qc4jkHQ1fe18vn,,,,,22.2908,114.1501,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Finance,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Reject,70,Reject,60,Reject,50,Reject,80,Approve,50,Approve,65,Reject,60,Reject,60,Reject,75,Approve,60,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Loan grade,,
+06/03/2023 02:53,06/03/2023 02:57,IP Address,172.226.0.43,100,190,TRUE,06/03/2023 02:57,R_WpLi7OC6Cv5WEQF,,,,,50.8344,-0.1857,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Seeking opportunities currently,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Approve,49,Reject,51,Approve,57,Reject,57,Approve,36,Approve,56,Approve,52,Approve,56,Reject,55,Approve,44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,36,Loan grade,,
+06/03/2023 03:07,06/03/2023 03:13,IP Address,111.201.233.102,100,352,TRUE,06/03/2023 03:13,R_bK3Uy3FzzZ2DaV3,,,,,39.9143,116.3861,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Full-time,Others,Deposit it into a saving account (safe but low reward),,,Approve,80,Approve,50,Approve,70,Reject,100,Approve,50,Approve,80,Approve,70,Reject,70,Reject,100,Approve,60,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,80,Loan grade,no,very goooooood
+06/03/2023 02:16,06/03/2023 03:30,IP Address,111.201.233.102,100,4442,TRUE,06/03/2023 03:30,R_2YWDu69lf5cfxYe,,,,,39.9143,116.3861,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Full-time,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Approve,100,Approve,100,Approve,100,Reject,52,Approve,100,Approve,100,Approve,100,Reject,56,Reject,100,Approve,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,100,Loan grade,,
+06/03/2023 12:03,06/03/2023 12:05,IP Address,137.205.1.153,100,139,TRUE,06/03/2023 12:05,R_1lgeqqA5A0ONzO0,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,Reject,66,Approve,25,Approve,93,Reject,32,Reject,81,Approve,62,Reject,42,Reject,62,Reject,98,Approve,62,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,72,Loan grade,None,Nothing as such
+06/03/2023 14:09,06/03/2023 14:16,IP Address,152.58.36.31,100,389,TRUE,06/03/2023 14:16,R_2A1olNhZYE7IQfF,,,,,23.0276,72.5871,anonymous,EN,,26-40 years old,Bachelor¡¯s degree,Full-time,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,82,,Reject,100,,Approve,93,,Reject,100,,Approve,59,,Approve,63,,Approve,68,,Approve,83,,Approve,50,,Approve,64,,91,Annual income,,Good
+06/03/2023 15:49,06/03/2023 15:53,IP Address,209.35.84.179,100,265,TRUE,06/03/2023 15:53,R_1H2DTjaaUUJV64b,,,,,53.7663,-1.5695,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Seeking opportunities currently,Currently not working,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,100,,Reject,29,,Approve,100,,Reject,53,,Approve,51,,Approve,62,,Approve,44,,Reject,60,,Reject,68,,Approve,59,,94,Loan grade,Income forms ,Satisfy
+06/03/2023 15:52,06/03/2023 16:03,IP Address,5.151.172.66,100,694,TRUE,06/03/2023 16:03,R_1ptk3Qm5YRPrO9K,,,,,51.5026,-0.066,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,79,Approve,85,Approve,60,Approve,65,Approve,75,Approve,80,Approve,50,Approve,45,Approve,66,Approve,60,Approve,60,Approve,72,Approve,70,Approve,83,Approve,60,Reject,56,Approve,62,Reject,61,Approve,65,Approve,72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60,Other credit inquiries,Assets holding ,
+06/03/2023 18:57,06/03/2023 19:07,IP Address,137.205.1.122,100,590,TRUE,06/03/2023 19:07,R_AnXJIiKMcD6hcKR,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Others,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,Approve,50,Reject,60,Approve,70,Reject,90,Approve,40,Approve,40,Approve,70,Approve,40,Reject,60,Approve,50,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,70,Annual income,whether they have real estate,
+06/03/2023 22:34,06/03/2023 22:42,IP Address,137.205.1.243,100,469,TRUE,06/03/2023 22:42,R_xDB71wlnTu4m7hT,,,,,52.382,-1.5874,anonymous,EN,,26-40 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,90,Approve,95,Reject,70,Reject,55,Approve,85,Approve,90,Reject,95,Reject,95,Approve,66,Approve,59,Approve,95,Approve,95,Approve,70,Approve,77,Approve,70,Approve,60,Reject,84,Reject,92,Approve,70,Approve,75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,81,Loan grade,Ratio loan/income,Satisfied 
+06/03/2023 23:23,06/03/2023 23:35,IP Address,86.159.207.94,100,712,TRUE,06/03/2023 23:35,R_30vCVA7mbfbcTbi,,,,,52.4214,-1.5674,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Currently not working,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,91,,Approve,51,,Approve,92,,Reject,55,,Approve,57,,Approve,90,,Approve,72,,Approve,64,,Reject,89,,Approve,95,,81,Annual income,applications' non-current asset and occupation,Satisfied
+06/03/2023 23:39,06/03/2023 23:44,IP Address,137.205.1.171,100,293,TRUE,06/03/2023 23:44,R_12EZe8u8Rj1M1AE,,,,,52.382,-1.5874,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,Approve,77,Approve,24,Approve,93,Reject,61,Approve,35,Approve,77,Approve,62,Reject,37,Reject,25,Approve,41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,33,Loan grade,the intention for the loan and monthly income ,Good
+06/03/2023 23:41,06/03/2023 23:46,IP Address,86.7.255.71,100,300,TRUE,06/03/2023 23:46,R_1dto3Gdyf7dGRYR,,,,,52.7681,-1.2026,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,74,Reject,55,Reject,86,Reject,75,Approve,53,Approve,100,Reject,89,Reject,100,Reject,70,Reject,71,Approve,85,Approve,100,Approve,69,Approve,86,Approve,52,Reject,48,Reject,91,Reject,100,Approve,81,Approve,94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,89,Loan grade,,It was fun and interesting 
+06/03/2023 23:41,06/03/2023 23:48,IP Address,86.7.255.71,100,445,TRUE,06/03/2023 23:48,R_yU85NQ9KIAt3mRr,,,,,52.7681,-1.2026,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Seeking opportunities currently,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Reject,70,,Reject,72,,Approve,70,,Reject,70,,Reject,70,,Approve,71,,Approve,71,,Approve,72,,Reject,71,,Approve,72,,70,Loan grade,Quantifying the difference between different loan grade,Neutral
+06/03/2023 23:43,06/03/2023 23:49,IP Address,89.240.95.39,100,355,TRUE,06/03/2023 23:49,R_3Gq702lNHYtDJXv,,,,,52.4391,-1.5039,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Part-time,Data processing,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,Approve,49,Approve,39,Approve,66,Reject,54,Reject,48,Approve,53,Reject,62,Reject,53,Reject,71,Approve,61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,58,Loan grade,,cool
+07/03/2023 04:48,07/03/2023 06:40,IP Address,114.254.0.49,100,6737,TRUE,07/03/2023 06:40,R_3qai3PU1YoO5svI,,,,,39.9143,116.3861,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Full-time,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,97,,Reject,93,,Approve,66,,Reject,97,,Reject,77,,Approve,88,,Approve,88,,Approve,81,,Reject,91,,Approve,90,,86,Annual income,,good
+07/03/2023 09:13,07/03/2023 09:22,IP Address,94.119.64.44,100,538,TRUE,07/03/2023 09:22,R_2wmkEMlPp10tI1X,,,,,51.5074,-0.1196,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Invest it in a bond (a rather safe form of investment but not as many rewards),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,70,Approve,70,Reject,60,Reject,60,Approve,60,Approve,60,Reject,57,Reject,57,Approve,60,Approve,60,Approve,60,Approve,60,Approve,60,Approve,60,Approve,60,Approve,60,Approve,60,Approve,61,Approve,60,Approve,60,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,50,Annual income,,
+06/03/2023 04:28,07/03/2023 17:12,IP Address,49.36.234.27,100,132207,TRUE,07/03/2023 17:12,R_3O0W9ZuoaWuALnD,,,,,26.9525,75.7105,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Others,Invest it in stocks (High risks but possibly high return),,,Approve,98,Reject,96,Approve,80,Reject,24,Approve,53,Approve,100,Approve,100,Approve,100,Approve,100,Approve,100,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,60,Annual income,NA,Good
+02/03/2023 19:27,02/03/2023 19:28,IP Address,137.205.1.21,97,69,FALSE,09/03/2023 19:28,R_rfhnBifR0ssfpwl,,,,,,,anonymous,EN,,18-25 years old,High school diploma/GED,Full-time,Agriculture,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,Approve,14,Reject,5,Approve,11,Approve,13,Reject,15,Approve,13,Approve,14,Reject,11,Reject,31,Reject,26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+09/03/2023 20:51,09/03/2023 21:08,IP Address,81.132.243.157,100,1058,TRUE,09/03/2023 21:08,R_1CHHdIbMyGmYu6Z,,,,,52.4214,-1.5674,anonymous,EN,,18-25 years old,Bachelor¡¯s degree,Prefer not to say,Currently not working,Deposit it into a saving account (safe but low reward),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Approve,57,Approve,67,Reject,74,Reject,49,Approve,48,Approve,69,Reject,69,Reject,82,Approve,33,Reject,68,Approve,54,Approve,64,Approve,42,Approve,52,Reject,39,Reject,48,Reject,60,Reject,82,Approve,41,Approve,60,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,78,Loan grade,current bank account balance,good
+03/03/2023 20:01,03/03/2023 20:04,IP Address,116.74.80.184,99,136,FALSE,10/03/2023 20:04,R_25GGO0SbaxtMVkK,,,,,,,anonymous,EN,,18-25 years old,Master¡¯s degree or higher education,Full-time,Others,Invest it in stocks (High risks but possibly high return),,,,,,,,,,,,,,,,,,,,,,,,Approve,46,Reject,72,Approve,87,Approve,45,Approve,94,Approve,83,Approve,84,Reject,37,Approve,47,Approve,97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,85,Loan grade,No ,

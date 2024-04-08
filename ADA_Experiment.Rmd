@@ -1,0 +1,395 @@
+---
+title: "ADA experiment"
+author: '2150156'
+date: "2023-03-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+library(dplyr)
+library(summarytools)
+library(rstatix)
+library(car)
+library(ggplot2)
+library(ggpubr) 
+```
+
+## Variables' Description
+
+- participant_number: unique ID for each participant 
+- condition: one control condition and three treatment conditions
+- age: age group for each participant
+- education: education group for each participant
+- working experience: not relevant(0), relevant(1)
+- *_fin: statistics for final decision stage
+- typeI_*: number of type I errors each participant 
+- typeII_* number of type II errors each participant 
+- ai_typeI: number of type I errors the AI made 
+- ai_typeII: number of type II errors the AI made 
+- confidence_*_avg : average confidence ratings each participant gave 
+
+## Data Analysis
+
+```{r}
+## Read data
+df <- read.csv("ADA_Experiment_checked.csv",header = T,stringsAsFactors = T)
+```
+
+```{r}
+## Compute participant-level metrics 
+df_outcomes <- df %>%
+    group_by(condition, participant_number) %>%
+    summarise_at(vars(
+        "age","education","work_experience",
+        "typeI_init", "typeII_init",
+        "typeI_fin", "typeII_fin",
+        "ai_typeI", "ai_typeII",
+        "badloans_num", "goodloans_num",
+        "confidence_init_avg", "confidence_fin_avg"
+        ),
+        sum, 
+        na.rm = TRUE
+        )
+
+## Compute Type I (false positive) Rate  & 
+## Type II (false negative) Rate 
+
+TypeI_Rate <- function(df, typeIrate_col, typeI_col){
+  df[typeIrate_col] <- df[typeI_col]/df['goodloans_num']
+  return(df)
+}
+TypeII_Rate <- function(df, typeIIrate_col, typeII_col){
+  df[typeIIrate_col] <- df[typeII_col]/df['badloans_num']
+  return(df)
+}
+
+df_outcomes <- TypeI_Rate(
+  df_outcomes, 'typeIrate_init', 'typeI_init')
+
+df_outcomes <- TypeI_Rate(
+  df_outcomes, 'typeIrate_fin', 'typeI_fin')
+
+df_outcomes <- TypeI_Rate(
+  df_outcomes, 'ai_typeIrate', 'ai_typeI')
+
+df_outcomes <- TypeII_Rate(
+  df_outcomes, 'typeIIrate_init', 'typeII_init')
+
+df_outcomes <- TypeII_Rate(
+  df_outcomes, 'typeIIrate_fin', 'typeII_fin')
+
+df_outcomes <- TypeII_Rate(
+  df_outcomes, 'ai_typeIIrate', 'ai_typeII')
+```
+
+```{r}
+## Change data type
+df_outcomes$age <- as.factor(df_outcomes$age)
+df_outcomes$education <- as.factor(df_outcomes$education)
+df_outcomes$work_experience <- as.factor(df_outcomes$work_experience)
+```
+
+```{r}
+## Summary Statistics
+perf_msrs <- c(
+  "typeIrate_init", "typeIrate_fin",  
+  "typeIIrate_init", "typeIIrate_fin", 
+  "ai_typeIrate", "ai_typeIIrate",
+  "confidence_init_avg","confidence_fin_avg")
+
+## Summary Stats overall - all conditions
+df_outcomes_descr <- dfSummary(df_outcomes[perf_msrs])
+
+filename <- "descriptives_outcomes_pilotADA.html"
+
+view(df_outcomes_descr, file = filename)
+
+## Summary Stats - each condition
+df_outcomes_descr_conds <- dfSummary(df_outcomes)
+
+name <- "descriptives_outcomes_pilotADA_conds.html"
+
+view(df_outcomes_descr_conds, file = name)
+```
+
+### First examine Type I error rate
+
+```{r}
+## look at distribution shape of my DVs for each condition
+Baseline <- df_outcomes[
+  df_outcomes$condition == "Baseline", ]
+
+RA <- df_outcomes[
+  df_outcomes$condition == "RA", ]
+
+Update <- df_outcomes[
+  df_outcomes$condition == "Update", ]
+
+Feedback <- df_outcomes[
+  df_outcomes$condition == "Feedback", ]
+
+hist(Baseline$typeIrate_fin,freq = F)
+lines(density(Baseline$typeIrate_fin),col="red")
+
+hist(RA$typeIrate_fin,freq = F)
+lines(density(RA$typeIrate_fin),col="red")
+
+hist(Update$typeIrate_fin,freq = F)
+lines(density(Update$typeIrate_fin),col="red")
+
+hist(Feedback$typeIrate_fin,freq = F)
+lines(density(Feedback$typeIrate_fin),col="red")
+```
+
+```{r}
+## The distributions are not normal.
+## Comparing between 4 conditions using Kruskal Wallis Test 
+kruskal.test(
+  typeIrate_fin ~ condition,
+  data = df_outcomes
+      )
+```
+
+```{r}
+## Pairwise Comparisons
+pairwise.wilcox.test( ## pairwise Mann Whitney U tests
+  df_outcomes$typeIrate_fin, df_outcomes$condition,
+  p.adjust.method = "BH")
+```
+
+```{r}
+## Visualization(barplot)
+barplot1 <- ggbarplot( 
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "typeIrate_fin", 
+  ylab = "Type I Rate - Final Decisions",
+  fill = "condition", ## color for each condition
+  add = "mean_se", ## includes standard error bar
+  label = TRUE, ## includes summary stats on chart
+  label.pos = "in", 
+  lab.nb.digits = 2) + ## round displayed stats to 2 decimal places
+    stat_compare_means(method = "kruskal.test") + ## displays kruskal wallis results on chart 
+    theme(text = element_text(size = 12, face = "bold"),
+          axis.text=element_text(size = 12),
+          legend.position = "none")
+
+print(barplot1)
+
+ggsave(plot = barplot1, width = 10, height = 8, dpi = 300,
+           filename =  "barplot_pilotTypeI.jpeg")
+
+```
+
+```{r}
+## Visualization(boxplot)
+boxplot1 <- ggboxplot(
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "typeIrate_fin", ylab = "Type I Rate - Final Decisions",
+  color = "condition", ## border color for each condition
+  palette = c("green", "blue", "yellow", "pink"),
+  order = c("Baseline", "RA", "Update", "Feedback")) + 
+  stat_compare_means(method = "kruskal.test")  ## displays kruskal wallis
+
+print(boxplot1)
+
+ggsave(plot = boxplot1, width = 10, height = 8, dpi = 300,
+           filename =  "boxplot_pilotTypeI.jpeg")
+```
+
+### Then examine Type II error rate
+
+```{r}
+## look at distribution shape of my DVs for each condition
+hist(Baseline$typeIIrate_fin,freq = F)
+lines(density(Baseline$typeIIrate_fin),col="red")
+
+hist(RA$typeIIrate_fin,freq = F)
+lines(density(RA$typeIIrate_fin),col="red")
+
+hist(Update$typeIIrate_fin,freq = F)
+lines(density(Update$typeIIrate_fin),col="red")
+
+hist(Feedback$typeIIrate_fin,freq = F)
+lines(density(Feedback$typeIIrate_fin),col="red")
+```
+
+```{r}
+## The distributions are not normal.
+## Comparing between 4 conditions using Kruskal Wallis Test 
+kruskal.test(
+  typeIIrate_fin ~ condition,
+  data = df_outcomes
+      )
+```
+
+```{r}
+## Pairwise Comparisons
+BR <- df_outcomes[
+  df_outcomes$condition == "Baseline" | df_outcomes$condition == "RA", ]
+
+BU <- df_outcomes[
+  df_outcomes$condition == "Baseline" | df_outcomes$condition == "Update", ]
+
+BF <- df_outcomes[
+  df_outcomes$condition == "Baseline" | df_outcomes$condition == "Feedback", ]
+
+RU <- df_outcomes[
+  df_outcomes$condition == "RA" | df_outcomes$condition == "Update", ]
+
+RF <- df_outcomes[
+  df_outcomes$condition == "RA" | df_outcomes$condition == "Feedback", ]
+
+UF <- df_outcomes[
+  df_outcomes$condition == "Update" | df_outcomes$condition == "Feedback", ]
+
+## Mann Whitney U Test (aka Wilcoxon Rank Sum test)
+
+coin::wilcox_test(typeIIrate_fin ~ condition,
+            data = BR,  
+            distribution = "exact", # p = 0.02973 
+            conf.int = TRUE
+            )
+
+coin::wilcox_test(typeIIrate_fin ~ condition, 
+            data = BU,  
+            distribution = "exact", # p = 0.1543
+            conf.int = TRUE)
+
+coin::wilcox_test(typeIIrate_fin ~ condition, 
+            data = BF,   
+            distribution = "exact", # p = 0.74
+            conf.int = TRUE)
+
+coin::wilcox_test(typeIIrate_fin ~ condition,
+            data = RU,  
+            distribution = "exact", # p = 0.7208
+            conf.int = TRUE
+            )
+
+coin::wilcox_test(typeIIrate_fin ~ condition, 
+            data = RF,  
+            distribution = "exact", # p = 0.01785
+            conf.int = TRUE)
+
+coin::wilcox_test(typeIIrate_fin ~ condition, 
+            data = UF,  
+            distribution = "exact", # p = 0.08989
+            conf.int = TRUE)
+
+pvals <- c(0.02973, 0.1543, 0.74, 0.7208, 0.01785, 0.08989)
+p.adjust (pvals, method="BH") # 0.08919 0.23145 0.74000 0.74000 0.08919 0.17978 
+```
+
+```{r}
+## Visualization(barplot)
+barplot2 <- ggbarplot( 
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "typeIIrate_fin", 
+  ylab = "Type II Rate - Final Decisions",
+  fill = "condition", ## color for each condition
+  add = "mean_se", ## includes standard error bar
+  label = TRUE, ## includes summary stats on chart
+  label.pos = "in", 
+  lab.nb.digits = 2) + ## round displayed stats to 2 decimal places
+    stat_compare_means(method = "kruskal.test") + ## displays kruskal wallis results on chart 
+    theme(text = element_text(size = 12, face = "bold"),
+          axis.text=element_text(size = 12),
+          legend.position = "none")
+
+print(barplot2)
+
+ggsave(plot = barplot2, width = 10, height = 8, dpi = 300,
+           filename =  "barplot_pilotTypeII.jpeg")
+
+```
+
+```{r}
+## Visualization(boxplot)
+boxplot2 <- ggboxplot(
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "typeIIrate_fin", ylab = "Type II Rate - Final Decisions",
+  color = "condition", ## border color for each condition
+  palette = c("green", "blue", "yellow", "pink"),
+  order = c("Baseline", "RA", "Update", "Feedback")) + 
+  stat_compare_means(method = "kruskal.test")  ## displays kruskal wallis
+
+print(boxplot2)
+
+ggsave(plot = boxplot2, width = 10, height = 8, dpi = 300,
+           filename =  "boxplot_pilotTypeII.jpeg")
+```
+
+### Finally examine average confidence
+
+```{r}
+## look at distribution shape of my DVs for each condition
+hist(Baseline$confidence_fin_avg,freq = F)
+lines(density(Baseline$confidence_fin_avg),col="red")
+
+hist(RA$confidence_fin_avg,freq = F)
+lines(density(RA$confidence_fin_avg),col="red")
+
+hist(Update$confidence_fin_avg,freq = F)
+lines(density(Update$confidence_fin_avg),col="red")
+
+hist(Feedback$confidence_fin_avg,freq = F)
+lines(density(Feedback$confidence_fin_avg),col="red")
+```
+
+```{r}
+## The distributions are close to normal and the variances between 4 conditions are similar.
+bartlett.test(list(Baseline$confidence_fin_avg, RA$confidence_fin_avg, Update$confidence_fin_avg,Feedback$confidence_fin_avg)) ## p = 0.31
+
+## Comparing between 4 conditions using ANOVA(controlling for age, education, work_experience)
+test <- lm(confidence_fin_avg ~ condition + work_experience + age + education,
+  data = df_outcomes)
+anova(test)
+summary(test)
+```
+
+
+```{r}
+## Visualization(barplot)
+barplot3 <- ggbarplot( 
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "confidence_fin_avg", 
+  ylab = "Confidence - Final Decisions",
+  fill = "condition", ## color for each condition
+  add = "mean_se", ## includes standard error bar
+  label = TRUE, ## includes summary stats on chart
+  label.pos = "in", 
+  lab.nb.digits = 2) + ## round displayed stats to 2 decimal places
+    stat_compare_means(method = "anova") + ## displays ANOVA results on chart 
+    theme(text = element_text(size = 12, face = "bold"),
+          axis.text=element_text(size = 12),
+          legend.position = "none")
+
+print(barplot3)
+
+ggsave(plot = barplot3, width = 10, height = 8, dpi = 300,
+           filename =  "barplot_pilotConfidence.jpeg")
+
+```
+
+```{r}
+## Visualization(boxplot)
+boxplot3 <- ggboxplot(
+  data = df_outcomes, 
+  x = "condition", xlab = "Condition",
+  y = "confidence_fin_avg", ylab = "Confidence - Final Decisions",
+  color = "condition", ## border color for each condition
+  palette = c("green", "blue", "yellow", "pink"),
+  order = c("Baseline", "RA", "Update", "Feedback")) + 
+  stat_compare_means(method = "anova")  ## displays ANOVA
+
+print(boxplot3)
+
+ggsave(plot = boxplot3, width = 10, height = 8, dpi = 300,
+           filename =  "boxplot_pilotConfidence.jpeg")
+```

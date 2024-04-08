@@ -1,0 +1,400 @@
+---
+title: 'Cluster Analysis'
+author: 'Group 35'
+output:
+  html_document:
+    toc: yes
+    toc_depth: 3
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+
+```{r}
+
+library(tidyverse)
+library(psych)
+library(psychTools)
+library(readxl)
+library(GPArotation)
+library(factoextra)
+library(cluster)
+library(dplyr)
+library(caTools)
+library(FSelector)
+library(Hmisc)
+library(plyr)
+library(ggplot2)
+
+
+```
+
+---
+
+# Data Preparation
+
+
+```{r}
+#import the dataset
+
+data_loan <- read_excel("/home/agida/Downloads/loan_data_ADA_assignment.xlsx")
+
+describe(data_loan)
+```
+
+
+```{r}
+#Keeping only needed columns
+
+selected_cols <- c("sub_grade", "dti", "revol_util", "total_acc", "total_pymnt", "last_pymnt_amnt", "tot_cur_bal","loan_amnt","int_rate","installment","emp_length","annual_inc","open_acc", "revol_bal", "total_rec_prncp","total_rec_int","total_credit_rv", "tot_coll_amt")
+
+```
+
+
+```{r}
+# Filter out other variables and keep selected columns
+
+data_loan <- data_loan[selected_cols]
+
+str(data_loan)
+```
+
+```{r}
+# Label encoding for sub grade column
+
+data_loan$sub_grade <- revalue(data_loan$sub_grade, c("A1" = "35", "A2" = "34", "A3" = "33", "A4" = "32", "A5" = "31","B1" = "30","B2" = "29","B3" = "28","B4" = "27","B5" = "26","C1" = "25","C2" = "24","C3" = "23","C4" = "22","C5" = "21","D1" = "20","D2" = "19","D3" = "18","D4" = "17","D5" = "16","E1" = "15","E2" = "14","E3" = "13","E4" = "12","E5" = "11","F1" = "10","F2" = "9","F3" = "8","F4" = "7","F5" = "6","G1" = "5","G2" = "4","G3" = "3","G4" = "2","G5" = "1")) 
+data_loan$sub_grade <- as.numeric(data_loan$sub_grade)
+
+
+describe(data_loan)
+```
+
+```{r}
+# Remove null values from data set
+
+data_loan <- na.omit(data_loan)
+```
+
+```{r}
+# Take 500 random sample from data set
+set.seed(123)
+data_loan_sample <- data_loan %>% slice_sample(n = 500)
+data_loan_sample <- as.data.frame(data_loan_sample)
+```
+
+```{r}
+summary(data_loan_sample)
+```
+
+
+```{r}
+# Check for potential outliers
+
+Maha <- mahalanobis(data_loan_sample,colMeans(data_loan_sample),cov(data_loan_sample))
+print(Maha)
+```
+
+```{r}
+# Calculate p values to check statistical significance. The number of values which less than 0.001 is 90, so we keep these values, because it consist of 18% of sample
+
+MahaPvalue <-pchisq(Maha,df=16,lower.tail = FALSE)
+print(MahaPvalue)
+print(sum(MahaPvalue<0.001))
+```
+
+```{r}
+# Based on p values remove outliers
+
+data_loan_sample<-cbind(data_loan_sample, Maha, MahaPvalue)
+data_loan_sample <- data_loan_sample[data_loan_sample$MahaPvalue > 0.001, ]
+
+```
+
+```{r}
+data_loan_sample <- subset(data_loan_sample, select =  -c(Maha, MahaPvalue))
+```
+
+
+```{r}
+# Check for correlation if there is multicollinearity
+
+data_loan_sample_cor <- cor(data_loan_sample)
+print(data_loan_sample_cor)
+lowerCor(data_loan)
+```
+
+
+```{r}
+# Standardize each variable with mean of 0 and sd of 1
+data_loan_sample <- scale(data_loan_sample)
+#data_loan_sample <- as.data.frame(data_loan_sample)
+```
+
+
+```{r}
+summary(data_loan_sample)
+```
+
+---
+
+# PCA and Factor Analysis
+
+
+```{r}
+# Check suitability for PCA
+KMO(data_loan_sample)
+```
+
+```{r}
+# Check suitability for PCA
+
+cortest.bartlett(data_loan_sample, n=463)
+```
+
+
+
+```{r}
+pcModel<-principal(data_loan_sample, 17, rotate="none", weights=TRUE, scores=TRUE)
+print(pcModel)
+```
+
+```{r}
+print.psych(pcModel, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# Visual helps you to define components numbers
+plot(pcModel$values, type="b")
+```
+
+```{r}
+# Run PCA with new components number
+pcModel1<-principal(data_loan_sample, 4, rotate="none", weights=TRUE, scores=TRUE)
+print(pcModel1)
+```
+
+```{r}
+print.psych(pcModel1, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# Run PCA with new components number
+pcModel2<-principal(data_loan_sample, 5, rotate="none", weights=TRUE, scores=TRUE)
+print(pcModel2)
+```
+
+```{r}
+print.psych(pcModel2, cut=0.3, sort=TRUE)
+```
+
+
+```{r}
+# Run PCA with new components number
+pcModel3<-principal(data_loan_sample, 3, rotate="none", weights=TRUE, scores=TRUE)
+print(pcModel3)
+```
+
+
+
+```{r}
+print.psych(pcModel3, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# PC extraction with Oblique rotation, 4 factor solutions
+pcModel1o<-principal(data_loan_sample, 4, rotate="oblimin")
+print.psych(pcModel1o, cut=0.3, sort=TRUE)
+```
+
+
+```{r}
+# Five factors solution
+pcModel2o<-principal(data_loan_sample, 5, rotate="oblimin")
+print.psych(pcModel2o, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# Three factors solution
+pcModel3o<-principal(data_loan_sample, 3, rotate="oblimin")
+print.psych(pcModel3o, cut=0.3, sort=TRUE)
+```
+
+
+```{r}
+#PC extraction with Orthogonal rotation. Four factors solution
+
+pcModel1q<-principal(data_loan_sample, 4, rotate="quartimax")
+print.psych(pcModel1q, cut=0.3, sort=TRUE)
+```
+
+
+```{r}
+# Five factors solution
+pcModel2q<-principal(data_loan_sample, 5, rotate="quartimax")
+print.psych(pcModel2q, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# Three factors solution
+pcModel3q<-principal(data_loan_sample, 3, rotate="quartimax")
+print.psych(pcModel3q, cut=0.3, sort=TRUE)
+```
+
+```{r}
+# Drop cross loading and missing variables
+
+drop_col <- c("open_acc", "total_acc" ,"revol_bal", "total_credit_rv", "emp_length", "last_pymnt_amnt","tot_coll_amt")
+data_loan_sample <- data_loan_sample[, !colnames(data_loan_sample) %in% drop_col]
+```
+
+---
+
+# Cluster Analysis
+
+```{r}
+# F scores for clsuter analysis
+pcModel1q<-principal(data_loan_sample, 4, rotate="quartimax")
+print.psych(pcModel1q, cut=0.3, sort=TRUE)
+fscores <- pcModel1q$scores
+```
+
+
+```{r}
+describe(fscores)
+```
+
+
+
+```{r}
+# Check assumptions to see whether the data are suitable for Cluster Analysis
+FscoresMatrix<-cor(fscores)
+print(FscoresMatrix)
+```
+
+
+```{r}
+round(FscoresMatrix, 2)
+```
+
+
+```{r}
+lowerCor(fscores)
+```
+
+```{r}
+# Define linkage methods
+
+m <- c( "average", "single", "complete", "ward")
+names(m) <- c( "average", "single", "complete", "ward")
+```
+
+```{r}
+# Function to compute agglomerative coefficient
+ac <- function(x) {
+  agnes(fscores, method = x)$ac
+}
+```
+
+
+```{r}
+# Calculate agglomerative coefficient for each clustering linkage method
+sapply(m, ac)
+```
+
+
+```{r}
+# Determine the Optimal Number of Clusters
+gap_stat <- clusGap(fscores, FUN = hcut, nstart = 25, K.max = 10, B = 50)
+```
+
+
+```{r}
+# Produce plot of clusters vs. gap statistic ( 3 or 6 clusters)
+fviz_gap_stat(gap_stat)
+```
+
+
+
+```{r}
+# Finding distance matrix
+distance_mat <- dist(fscores, method = 'euclidean')
+```
+
+
+
+```{r}
+# Fitting Hierarchical clustering Model to dataset
+set.seed(123)  
+Hierar_cl <- hclust(distance_mat, method = "ward")
+Hierar_cl
+```
+
+
+```{r}
+# Plotting dendrogram
+plot(Hierar_cl)
+```
+
+
+
+
+```{r}
+# Choosing no. of clusters
+fit <- cutree(Hierar_cl, k = 3)
+fit
+```
+
+
+```{r}
+#Find number of observations in each cluster
+table(fit)
+```
+
+
+
+```{r}
+# Append cluster labels to original data
+final_data <-cbind(fscores, cluster = fit)
+```
+
+
+```{r}
+# Display first six rows of final data
+head(final_data)
+final_data <- as.data.frame(final_data)
+```
+
+
+```{r}
+# Find mean values for each cluster
+hcentres<-aggregate(x=final_data, by=list(cluster=fit), FUN="mean")
+print(hcentres)
+```
+
+
+
+```{r}
+km <- kmeans(fscores, 3, nstart = 25)
+km
+```
+
+
+
+```{r}
+#sil check for validation
+
+
+K_sil <- silhouette(km$cluster, dist(fscores))
+summary(K_sil)
+
+
+```
+
+
+```{r}
+H_sil <- silhouette(final_data$cluster, distance_mat)
+summary(H_sil)
+```
+
