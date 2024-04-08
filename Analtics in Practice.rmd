@@ -1,0 +1,413 @@
+---
+title: "Email Marketing Group Project"
+author: "Group 40"
+date: "2022-11-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+
+# Load FSelector package for Feature Selection
+library(FSelector)  
+
+# Load ROSE package to for data balancing
+library(ROSE)
+
+# Load "caTools" package for data partitioning
+library(caTools)
+
+# Load "Caret" package for confusion matrix
+library(caret)
+
+# Load "pROC" package for ROC chart
+library(pROC)
+
+# for mapping decision tree 
+library(maptree)
+
+# for random forest 
+library(randomForest)
+
+#for gain table 
+library(CustomerScoringMetrics)
+
+# Load "party" package for decision tree
+library(party)
+
+# Load "e1071" 
+library(e1071)
+```
+Import data
+```{r}
+#import data records and change strings into factors
+df_group.project <- read.csv("assignment_data.csv", stringsAsFactors = TRUE)
+
+```
+
+Data understanding
+```{r}
+#check summary and structure of the data
+summary(df_group.project)
+str(df_group.project)
+
+#check for duplicates 
+sum(duplicated(df_group.project))
+```
+Exploratory Data Analysis
+```{r}
+#factorize all the categorical variables (ggplot needs to work with factors)
+cols_var <- c("mens", "womens", "new_customer", "dependent", "employed", "phone", "delivery", "marriage", "payment_card", "visit")
+df_group.project[cols_var] <- lapply(df_group.project[cols_var] , factor)
+
+#recoded purchase_segment for better visual display
+df_group.project$purchase_segment <- recode_factor(df_group.project$purchase_segment, 
+                                  "1) 0 - 100" = "0 to 100", 
+                                 "2) 100 - 200"  = "100 to 200",
+                                 "3) 200 - 350" = "200 to 350",
+                                 "4) 350 - 500" = "350 to 500",
+                                 "5) 500 - 750" = "500 to 750",
+                                 "6) 750 - 1,000" = "750 to 1000",
+                                 "7) 1,000 +" = "1000+")
+
+#How many people receive email actually visited after two weeks:
+table(df_group.project$email_segment, df_group.project$visit)
+```
+
+
+```{r}
+# EDA with numeric variable:
+## visit by age
+ggplot(df_group.project, aes(x = age)) + geom_bar(aes(fill = visit))
+
+## visit by recency ***
+ggplot(df_group.project, aes(x = recency)) + geom_bar(aes(fill = visit))
+
+## visit by purchase_segment ***
+ggplot(df_group.project, aes(x = purchase_segment)) + geom_bar(aes(fill = visit))
+
+ggplot(df_group.project, aes(x = zip_area)) + geom_bar(aes(fill = visit))
+
+filter(df_group.project, visit == 1, spend > 0) %>% na.omit() %>% ggplot(aes(x = purchase_segment, y = spend)) + geom_boxplot(alpha = 0.5)
+
+filter(df_group.project, visit == 1) %>% na.omit() %>% ggplot(aes(x = zip_area, y = spend)) + geom_boxplot(alpha = 0.5)
+
+filter(df_group.project, visit == 1) %>% ggplot(aes(x = spend)) + geom_density(aes(group = email_segment, color = email_segment))
+
+#add correlation for the 2 attributes removed
+```
+
+
+Data Cleaning and Preparation
+```{r}
+# I. Cleaning for modelling to predict visits
+
+#Create dataset only with email observation
+df_emailed <- df_group.project %>% filter(email_segment != "No E-Mail")
+
+#change the levels for the factor for email segment in the new dataset
+df_emailed$email_segment <- df_emailed$email_segment %>% droplevels("No E-Mail")
+
+#Remove unneccesary variables for modelling
+df_emailed$Customer_ID <- NULL
+df_emailed$account <- NULL
+
+#remove attributes that are correlated
+df_emailed$spend <- NULL
+df_emailed$purchase_segment <- NULL
+```
+
+
+```{r}
+# II. Cleaning for linear regression to predict trade-off between costs and benefits of sending emails
+df_spend <- df_group.project %>% filter(email_segment != "No E-Mail",spend != 0)
+
+#remove unwanted variable for model training.  
+cols_rm.1 <- c("Customer_ID", "purchase_segment", "account", "visit")
+df_spend[cols_rm.1] <- NULL
+
+#drop levels for email_segment
+df_spend$email_segment <- df_spend$email_segment %>% droplevels("No E-Mail")
+
+```
+
+
+```{r}
+#check again for the structure and summary of the df_emailed to make sure everything is correct before preparing for the models
+str(df_emailed)
+summary(df_emailed)
+```
+
+
+```{r}
+summary(df_spend)
+str(df_spend)
+```
+
+```{r}
+# I. Data partitioning for df_emailed
+
+set.seed(10)
+
+split <- sample.split(df_emailed$visit, SplitRatio = 0.70)   
+
+training <- subset(df_emailed, split == TRUE) 
+
+test <- subset(df_emailed, split == FALSE) 
+
+#Both Oversampling and Undersampling training set
+training_both <- ovun.sample(visit~ ., data = training, method = "both", p=0.5, seed = 10)$data
+
+#Compare training with training_both
+prop.table(table(training_both$visit))
+prop.table(table(training$visit))
+```
+
+```{r}
+# II. Data partitioning for df_spend
+set.seed(10)
+
+split.s <- sample.split(df_spend$spend, SplitRatio = 0.70)   
+
+training.s <- subset(df_spend, split.s == TRUE)
+
+test.s <- subset(df_spend, split.s == FALSE)
+
+ggplot() + geom_density(data = training.s, aes(x = spend), color = "blue") + geom_density(data = test.s, aes( x = spend), color = "red")
+
+( t.test(test.s$spend, training.s$spend))
+
+#According to t-test result and ggplot, test.s and training.s are statistically similar, therefore the training set is valid for model training
+```
+
+LOGISTIC REGRESSION
+
+1. Logistic Regression with original training dataset, before using both over and undersampling
+
+```{r}
+#Apply logreg on original training dataset and check performance with test dataset
+LogReg_traing <- glm(visit~., data=training, family = "binomial")
+
+#Predict class probabilities for training datset
+LogReg_traing_pred <-predict(LogReg_traing, test, type="response")
+
+#Predict class
+LogReg_traing_class <- ifelse(LogReg_traing_pred > 0.4, 1, 0)
+
+#Save the prediction as factor variables
+LogReg_traing_class <- as.factor(LogReg_traing_class)
+
+confusionMatrix(LogReg_traing_class, test$visit, positive = "1", mode = "prec_recall")
+
+```
+
+
+
+
+
+
+2. Logistic Regression with balanced training dataset
+
+```{r}
+#Apply LogReg on Both and check performance with test dataset
+LogReg_traing_both <- glm(visit~., data=training_both, family = "binomial")
+
+#Predict class probabilities for training datset 
+LogReg_traing_both_pred <-predict(LogReg_traing_both, test, type="response")
+
+#Predict class
+LogReg_traing_both_class <- ifelse(LogReg_traing_both_pred > 0.5, 1, 0)
+
+#Save the prediction as factor variables
+LogReg_traing_both_class <- as.factor(LogReg_traing_both_class)
+
+#confusion matrix for training dataset
+confusionMatrix(LogReg_traing_both_class, test$visit, positive = "1", mode = "prec_recall")
+
+```
+
+DECISION TREE
+1. Variable selections for Decision Tree for balanced dataset
+```{r}
+#step 1: calculate information gain
+gain_both = information.gain(visit~., training_both)
+
+#step 2: choose 10 top variables with highest weight 
+select_varaibles_both = cutoff.k(gain_both,10)
+
+#step 3: create a copy of trainingset with only the above 10 variables 
+subset_training_both = training_both[select_varaibles_both]
+
+#step 4: add target column 
+subset_training_both$target = training_both$visit
+
+```
+
+
+
+2. Decision Tree prediction for # only selected variables with highest IG #
+```{r}
+########****    I. Based on balanced training set
+
+#step1: create the DT model
+DT_model_sel_enc = ctree(target~., data = subset_training_both)
+#step2: visualize decision tree
+plot(DT_model_sel_enc, type = "simple")
+
+#step3: make predictions
+pre_DT_class_sel_enc = predict(DT_model_sel_enc, test, type = "response")
+
+confusionMatrix(pre_DT_class_sel_enc, test$visit, positive='1', mode = "prec_recall")
+```
+
+4.2 Decision Tree prediction for # all variables #
+```{r}
+########****    I. Based on balanced training set 
+
+#step1: create the DT model
+DT_model_all_enc = ctree(visit~., data = training_both)
+#step2: visualize decision tree
+plot(DT_model_all_enc, type = "simple")
+
+#step3: make predictions
+pre_DT_class_all_enc = predict(DT_model_all_enc, test, type = "response")
+
+confusionMatrix(pre_DT_class_all_enc, test$visit, positive='1', mode = "prec_recall")
+```
+
+
+4.3 Evaluation for DT
+```{r}
+#probabilities for the decision tree predictions 
+prob_DT_sel_enc = predict(DT_model_sel_enc, test, type = "prob")
+prob_DT_all_enc = predict(DT_model_all_enc, test, type = "prob")
+
+#change DT probabilities to dataframe for ROC use 
+df_prob_DT_sel_enc = data.frame(matrix(unlist(prob_DT_sel_enc), nrow=length(prob_DT_sel_enc), byrow=TRUE))
+df_prob_DT_all_enc = data.frame(matrix(unlist(prob_DT_all_enc), nrow=length(prob_DT_all_enc), byrow=TRUE))
+
+#ROC for the DT predicitons 
+ROC_DT_sel_enc <- roc(test$visit, df_prob_DT_sel_enc[,2])
+ROC_DT_all_enc <- roc(test$visit, df_prob_DT_all_enc[,2])
+
+#ROC curve for decision tree models 
+ggroc(list(DT_selectedVariable_sampledData = ROC_DT_sel_enc, DT_allVariable_sampledData = ROC_DT_all_enc), legacy.axes=TRUE)+ xlab("FPR") + ylab("TPR") + geom_abline(intercept = 0, slope = 1, color = "darkgrey", linetype = "dashed") 
+
+#check AUC value 
+auc(ROC_DT_sel_enc)
+auc(ROC_DT_all_enc)
+```
+
+RANDOM FOREST 
+
+1 RF for balanced dataset 
+```{r}
+RF_model_enc = randomForest(visit~., data = training_both)
+
+#print RF model 
+print(RF_model_enc)
+
+#check importance in RF model 
+importance(RF_model_enc)
+
+#RF predict 
+pre_RF_enc = predict(RF_model_enc,test)
+
+#RF confusion matrix 
+confusionMatrix(pre_RF_enc, test$visit, positive='1', mode = "prec_recall")
+
+```
+SVM
+```{r}
+## Create model object
+m.svm.1 <- svm(visit ~ ., data = training_both, kernel= "radial", scale = TRUE, probability = TRUE)
+```
+
+1. Predicting the test dataset
+```{r}
+## Predict with test
+prediction_SVM <- predict(m.svm.1, test, probability = T)
+
+### Confusion Matrix and Things
+confusionMatrix(prediction_SVM, test$visit, positive='1', mode = "prec_recall")
+
+```
+
+
+SPEND MODEL PREDICTION
+The objective here to train the model with training set, afterward evaluate model by predicting test.s:
+Here, we will include both linear regression and non-linear regression models:
+Non-linear model include: RF 
+Linear model include: Linear Regression
+Performance comparison metric ares RMSE(Residual Mean Standard Error) and R-Square
+
+
+Random Forest
+```{r}
+# train model
+RF_spend <- randomForest(spend~., data = training.s)
+print(RF_spend)
+importance(RF_spend)
+```
+```{r}
+RF_residuals = resid(RF_spend)
+plot(training.s$spend, RF_residuals)
+abline(0, 0)
+```
+
+
+Linear Regression Model
+```{r}
+# train model
+LR_spend <- lm(spend~., data = training.s)
+summary(LR_spend)
+```
+```{r}
+LR_residuals = resid(LR_spend)
+plot(training.s$spend, LR_residuals)
+abline(0, 0)
+```
+
+EVALUATION
+FOR PREDICTING VISITS APPROACH
+1. ROC 
+Evaluation for ALL: LogReg,RF,DT,SVM
+```{r}
+#probabilities for RF predictions with sampled dataset
+prob_LogReg_enc = predict(LogReg_traing_both, test, type = "response")
+prob_RF_enc = predict(RF_model_enc, test, type = "prob")
+prob_DT_enc = predict(DT_model_sel_enc, test, type = "prob")
+prob_SVM = attr(prediction_SVM, "probabilities")
+
+#change DT probabilities to dataframe for ROC use 
+df_prob_DT_enc = data.frame(matrix(unlist(prob_DT_enc), nrow=length(prob_DT_enc), byrow=TRUE))
+
+#ROC value for sampled dataset prediction 
+ROC_LogReg_enc = roc(test$visit, prob_LogReg_enc[])
+ROC_RF_enc = roc(test$visit, prob_RF_enc[,2])
+ROC_DT_enc = roc(test$visit, df_prob_DT_enc[,2])
+ROC_SVM = roc(test$visit, prob_SVM[, 1])
+
+#plot out ROC curve for sampled dataset prediction 
+ggroc(list(RF = ROC_RF_enc, LogReg = ROC_LogReg_enc, DT = ROC_DT_enc, SVM = ROC_SVM), legacy.axes=TRUE)+ xlab("FPR") + ylab("TPR") +
+   geom_abline(intercept = 0, slope = 1, color = "darkgrey", linetype = "dashed") 
+
+#check AUC value 
+auc(ROC_LogReg_enc)
+auc(ROC_RF_enc)
+auc(ROC_DT_enc)
+auc(ROC_SVM)
+
+```
+
+
+
+
+
+
+

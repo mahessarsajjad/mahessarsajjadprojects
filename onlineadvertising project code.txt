@@ -1,0 +1,48 @@
+"""
+Online Advertising Problem
+"""
+
+import pulp
+import pandas as pd
+
+file_name='AdvertisingData.xlsx'
+df = pd.read_excel(file_name,index_col=0)  # by default header=0, i.e. no need to create
+slate = df.columns
+r = df.loc['r']
+A = df.iloc[1:]
+cind = A.index
+A.index = range(len(cind))
+b = cind.to_series()
+b.index = range(len(cind))
+cind = b.index
+
+model = pulp.LpProblem("Online_Advertising", pulp.LpMaximize)
+
+x = pulp.LpVariable.dicts("x",slate, lowBound=0, upBound = None, cat ="Integer")
+
+model+= pulp.lpSum(r[i]*x[i] for i in slate), "Revenue"
+
+for i in cind:
+    model += pulp.lpSum(A.loc[i,j]*x[j] for j in slate) <= b[i], f"Constraint_{i}" 
+    
+
+print(model)
+print()
+
+#model.solve()
+#model.solve(pulp.CPLEX_CMD())
+#model.solve(pulp.GUROBI_CMD())
+model.solve(pulp.PULP_CBC_CMD())
+
+status = pulp.LpStatus[model.status]
+print("Solution status: ", status)
+print()
+
+for var in model.variables():
+    if var.varValue > 0.5:
+        print(var.name, "=", var.varValue)
+print()
+
+pr = pulp.value(model.objective)
+print("Revenue =", pr)
+
