@@ -1,6 +1,4 @@
-"""
-Online Advertising Problem
-"""
+
 
 import pulp
 import pandas as pd
