@@ -1,5 +1,5 @@
 ---
-title: "Email Marketing Group Project"
+title: "Email Marketing Project"
 author: "sajjad"
 date: "2022-11-26"
 output: html_document
